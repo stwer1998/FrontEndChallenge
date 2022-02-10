@@ -1,39 +1,20 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import AlbumListComponent from "./Components/AlbumListComponent";
-import Inputs from "./Components/Inputs";
-import ErrorMsg from "./ErrorMsg";
-import Loader from "./Loader";
-import { fetchAlbum } from "./redux/AlbumActionCreatoe";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AlbumComponent from "./Components/AlbumComponent";
+import AlbumList from "./Components/AlbumList";
 import { useTypeSelector } from "./redux/reducers/albumReducer";
 
 const App: React.FC = () => {
   const state = useTypeSelector((state) => state);
-  // const { fetchAlbum, filter } = useActions();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAlbum());
-  }, []);
-
-  if (state.loading) {
-    return <Loader />;
-  }
-
-  if (state.error) {
-    return <ErrorMsg />;
-  }
-
-  //console.log(state);
-  //if(state.data.length>1){
-    //dispatch(filter('pop'));
-  //}
-
   return (
-    <div className="content">
-      <h1 className="title">Top albums</h1>
-      <Inputs />
-      <AlbumListComponent albums={state.albums} />
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Routes>
+          <Route element={<AlbumList />} path="/" />
+          <Route element={<AlbumComponent />} path="/album/*" />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 

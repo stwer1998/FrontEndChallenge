@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+function Loader() {
   return (
     <div className="loader-container" id="loader" aria-label="Wait for loading">
     <div className="yellow"></div>
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default Loader;
