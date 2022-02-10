@@ -4,7 +4,7 @@ type AlbumListType={
     albums : Album[]
 }
 
-const AlbumList:React.FC<AlbumListType> = ({albums}) =>{
+const AlbumListComponent:React.FC<AlbumListType> = ({albums}) =>{
     return(
         <ul className="albums list-reset" aria-label="List of top albums">
         {albums.map(x=>{
@@ -15,7 +15,7 @@ const AlbumList:React.FC<AlbumListType> = ({albums}) =>{
                         <p className="album__title">{x.title}</p>
                         <p className="album__category">{x.category}</p>
                         <p className="album__price">${x.price}</p>
-
+                        <p className="album__price">{x.release.toDateString()}</p>
                     </div>
                 </a>
                 </li>)
@@ -24,4 +24,4 @@ const AlbumList:React.FC<AlbumListType> = ({albums}) =>{
     )
 }
 
-export default AlbumList;
+export default AlbumListComponent;

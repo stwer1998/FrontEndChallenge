@@ -7,6 +7,7 @@ export class Album {
   price: number;
   id: number;
   title: string;
+  release:Date;
 
   constructor(album: any) {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -20,6 +21,7 @@ export class Album {
         album["im:price"].label.substring(1, album["im:price"].label.length)
       ));
     this.id = Number(album.id.attributes["im:id"]);
+    this.release = new Date(album['im:releaseDate'].label)
   }
 
   filter(params: string): boolean {

@@ -10,12 +10,12 @@ interface sorts{
     byPrice:bypriseSort|null
 }
 
-enum byRealiseSort{
+export enum byRealiseSort{
     release_asc=1,
     release_desc=2
 }
 
-enum bypriseSort{
+export enum bypriseSort{
     price_asc=1,
     price_desc=2
 }
