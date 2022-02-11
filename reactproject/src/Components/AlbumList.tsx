@@ -10,10 +10,6 @@ import Loader from "./Loader";
 const AlbumList: React.FC = () => {
   const state = store.getState();
   // const { fetchAlbum, filter } = useActions();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAlbum());
-  }, []);
 
   if (state.loading) {
     return <Loader />;

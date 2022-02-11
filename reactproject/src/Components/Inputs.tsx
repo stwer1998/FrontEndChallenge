@@ -59,11 +59,12 @@ const Inputs: React.FC = () => {
         onChange={changeHandler}
         value={filterItem}
         className="search"
-        placeholder="Search…"
+        placeholder="Search by title…"
         type="text"
         data-bind="value: filter, valueUpdate: 'input'"
       />
       <select
+      className="category"
         name="category"
         id="category"
         defaultValue={""}
@@ -79,6 +80,7 @@ const Inputs: React.FC = () => {
         })}
       </select>
       <select
+      className="sort"
         name="sort"
         id="sort"
         defaultValue={""}

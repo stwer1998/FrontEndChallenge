@@ -53,6 +53,8 @@ img {
   width: 100%;
   text-align: center;
   margin: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .search {
@@ -60,7 +62,6 @@ img {
   background-color: rgba(255, 255, 255, 0.19);
   max-width: 570px;
   min-width: 275px;
-  width: 50%;
   border: none;
   height: 60px;
   border-radius: 19px;
@@ -77,6 +78,18 @@ img {
   background-color: rgba(255, 255, 255, 0.09);
   outline: 2px solid #f0bf5f;
   border-radius: 19px;
+}
+
+.category, .sort{
+  padding: 4px 24px 0 24px;
+  background-color: rgba(255, 255, 255, 0.19);
+  max-width: 570px;
+  min-width: 275px;
+  border: none;
+  height: 60px;
+  border-radius: 19px;
+  color: white;
+  transition: background-color .3s ease, outline 0.3s ease;
 }
 
 .albums {
@@ -140,6 +153,10 @@ img {
   font-weight: 100;
   font-size: 14px;
   line-height: 16px;
+}
+
+.albumSrc{
+  padding: 20%;
 }
 
 @media(max-width:662px) {
