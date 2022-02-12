@@ -1,12 +1,10 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
 import { Album } from "../../types/Album";
 import {
   AlbumActionType,
   AlbumActionTypeEnum,
 } from "../../types/AlbumActionType";
 import { AlbumState, AppinitialState } from "../../types/InitialState";
-import * as AlbumActionCreatoe from "../AlbumActionCreatoe";
 
 export const albumReducer = (
   state = AppinitialState,
@@ -51,7 +49,3 @@ export const albumReducer = (
 
 export type Albumreducer = ReturnType<typeof albumReducer>;
 export const useTypeSelector: TypedUseSelectorHook<Albumreducer> = useSelector;
-// export const useActions = () => {
-//   const dispatch = useDispatch();
-//   return bindActionCreators(AlbumActionCreatoe, dispatch);
-// };

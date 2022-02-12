@@ -42,20 +42,45 @@ const Inputs: React.FC = () => {
       case "ralease_dsc":
         dispatch(sortByRealise(byRealiseSort.release_desc));
         break;
-      default:        
+      default:
         dispatch(sortByPrice(null));
     }
   };
 
   const state = store.getState();
-  let category = state.data
+  let category = state.albums
     .map((x) => x.category)
     .filter(
       (value, index, categoryArray) => categoryArray.indexOf(value) === index
     );
+
+  const styles = {
+    searchContainer: {
+      padding: "20px 3% 0 3%",
+      width: "100%",
+      margin: "0",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    searchItem: {
+      padding: "4px 24px 0 24px",
+      backgroundColor: "rgba(255, 255, 255, 0.19)",
+      maxWidth: "570px",
+      minWidth: "275px",
+      width: "50%",
+      border: "none",
+      height: "60px",
+      borderRadius: "19px",
+      color: "white",
+      transition: "background-color .3s ease, outline 0.3s ease",
+    },
+  } as const;
+
   return (
-    <div className="search-container" aria-label="Search fields">
+    <div style={styles.searchContainer} aria-label="Search fields">
       <input
+      style={styles.searchItem}
         onChange={changeHandler}
         value={filterItem}
         className="search"
@@ -64,7 +89,8 @@ const Inputs: React.FC = () => {
         data-bind="value: filter, valueUpdate: 'input'"
       />
       <select
-      className="category"
+      style={styles.searchItem}
+        className="category"
         name="category"
         id="category"
         defaultValue={""}
@@ -80,13 +106,17 @@ const Inputs: React.FC = () => {
         })}
       </select>
       <select
-      className="sort"
+      style={styles.searchItem}
+        className="sort"
         name="sort"
         id="sort"
         defaultValue={""}
         onChange={sortPricehandler}
       >
-        <option value="" disabled> -- Select sort -- </option>
+        <option value="" disabled>
+          {" "}
+          -- Select sort --{" "}
+        </option>
         <option value="price_asc"> Prise_asc </option>
         <option value="price_dsc"> Price_dsc </option>
         <option value="ralease_asc"> Release_asc </option>

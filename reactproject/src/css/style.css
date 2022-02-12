@@ -51,45 +51,37 @@ img {
 .search-container{
   padding: 20px 3% 0 3%;
   width: 100%;
-  text-align: center;
   margin: 0;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
-.search {
+.category{
+  margin: 20px 0;
+}
+
+.search, .category, .sort, .back-btn {
   padding: 4px 24px 0 24px;
   background-color: rgba(255, 255, 255, 0.19);
   max-width: 570px;
   min-width: 275px;
+  width: 50%;
   border: none;
   height: 60px;
   border-radius: 19px;
   color: white;
   transition: background-color .3s ease, outline 0.3s ease;
-
 }
 
 .search::placeholder{
   color: rgb(206, 206, 206);
 }
 
-.search:hover, .search:focus {
+.search:hover, .search:focus , .category:hover, .category:focus, .sort:hover, .sort:focus, .back-btn:focus, .back-btn:hover {
   background-color: rgba(255, 255, 255, 0.09);
   outline: 2px solid #f0bf5f;
   border-radius: 19px;
-}
-
-.category, .sort{
-  padding: 4px 24px 0 24px;
-  background-color: rgba(255, 255, 255, 0.19);
-  max-width: 570px;
-  min-width: 275px;
-  border: none;
-  height: 60px;
-  border-radius: 19px;
-  color: white;
-  transition: background-color .3s ease, outline 0.3s ease;
 }
 
 .albums {
@@ -112,23 +104,21 @@ img {
   flex-direction: column;
   justify-content: space-between;
   padding: 10%;
-}
-
-.album__link {
-  display: block;
-  height: 100%;
-  width: 100%;
   border-radius: 19px;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.19);
   transition: background-color .3s ease, outline 0.3s ease color 0.3s ease;
 }
 
-.album__link:focus, .album__link:hover, .album__link:active {
+.album__container:focus, .album__container:hover, .album__container:active {
   outline: 2px solid #f0bf5f;
   border-radius: 19px;
   color: #f0bf5f;
   background: rgba(255, 255, 255, 0.09);
+}
+
+.album__container>p{
+  cursor: default;
 }
 
 .album__title {
@@ -147,16 +137,37 @@ img {
   line-height: 16px;
 }
 
-.album__price {
+.album__desc {
   margin: 0;
   padding: 0;
+  margin-bottom: 10px;
   font-weight: 100;
   font-size: 14px;
   line-height: 16px;
 }
 
+.album_link{
+  color: #f7ac16;
+}
+
 .albumSrc{
-  padding: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.albumSrc>div>a{
+  color: #f7ac16;
+}
+
+.albumSrc-right{
+  width: 70%;
+}
+
+select > option {
+  color: black
 }
 
 @media(max-width:662px) {
@@ -175,8 +186,14 @@ img {
     margin: 0;
   }
 
-  .search {
+  .search, .category, .sort, .back-btn {
     min-width: 200px;
+  }
+
+  .albumSrc{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
 }

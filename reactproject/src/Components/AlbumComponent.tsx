@@ -1,34 +1,58 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { store } from '../redux/store';
+import { useNavigate, useParams } from "react-router-dom";
+import { store } from "../redux/store";
+import ErrorMsg from "./ErrorMsg";
+import Loader from "./Loader";
 
 function AlbumComponent() {
   const navigate = useNavigate();
   let params = useParams();
-  const id:number = Number(params['*'])
+  let id: number;
+  try {
+    id = Number(params["*"]);
+  } catch {
+    return <ErrorMsg />;
+  }
 
   const state = store.getState();
-  const album = state.data.find(x=>x.id===id);
 
-  const BackHandler = ()=>{
-    navigate('../', {replace:true})
-    
+  if (state.loading) {
+    return <Loader />;
   }
-  
-  // useEffect(()=>{ //go back
-  // navigate("../",{ replace: true })
-  // })
-  
-  return (
-    <div className="content">
-      <button onClick={BackHandler}>Go back</button>
-      <div className="albumSrc">
-      <img src={album?.image} />
-      <p className="album__title">{album!.title}</p>
-                        <p className="album__category">{album!.category}</p>
-                        <p className="album__price">${album!.price}</p>
-                        <p className="album__price">{album!.release.toDateString()}</p>
 
+  if (state.error) {
+    return <ErrorMsg />;
+  }
+
+  const album = state.data.find((x) => x.id === id);
+
+  if (!album) {
+    return <ErrorMsg />;
+  }
+
+  const BackHandler = () => {
+    navigate("../", { replace: true });
+  };
+
+  return (
+    <div className="content albumSrc">
+      <div className="albumSrc-left">
+        <img src={album.image} alt={album.title} />
+      </div>
+      <div className="albumSrc-right">
+        <a href={album.link}>
+          <p className="album__title">{album.name}</p>
+        </a>
+        <a href={album.artistLink}>
+          <p>{album.artist}</p>
+        </a>
+        <a href={album.categotyLink}>
+          <p className="album__category">{album.category}</p>
+        </a>
+        <p className="album__price">${album.price}</p>
+        <p> Amount of songs: {album.amountSongs}</p>
+        <p className="album__price">{album.release.toDateString()}</p>
+        <p>{album.rights}</p>
+        <button className="back-btn" onClick={BackHandler}>Go back</button>
       </div>
     </div>
   );

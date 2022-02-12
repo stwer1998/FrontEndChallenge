@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchAlbum } from "../redux/AlbumActionCreatoe";
+import React from "react";
 import { store } from "../redux/store";
 import AlbumListComponent from "./AlbumListComponent";
 import ErrorMsg from "./ErrorMsg";
@@ -18,11 +16,6 @@ const AlbumList: React.FC = () => {
   if (state.error) {
     return <ErrorMsg />;
   }
-
-  //console.log(state);
-  //if(state.data.length>1){
-    //dispatch(filter('pop'));
-  //}
 
   return (
     <div className="content">
