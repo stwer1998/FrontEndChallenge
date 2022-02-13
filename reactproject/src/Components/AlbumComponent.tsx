@@ -39,13 +39,13 @@ function AlbumComponent() {
         <img src={album.image} alt={album.title} />
       </div>
       <div className="albumSrc-right">
-        <a href={album.link}>
+        <a target="_blank" rel="noreferrer" href={album.link}>
           <p className="album__title">{album.name}</p>
         </a>
-        <a href={album.artistLink}>
+        <a target="_blank" rel="noreferrer" href={album.artistLink}>
           <p>{album.artist}</p>
         </a>
-        <a href={album.categotyLink}>
+        <a target="_blank" rel="noreferrer" href={album.categotyLink}>
           <p className="album__category">{album.category}</p>
         </a>
         <p className="album__price">${album.price}</p>

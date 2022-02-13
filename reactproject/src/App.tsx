@@ -5,8 +5,6 @@ import AlbumComponent from "./Components/AlbumComponent";
 import AlbumList from "./Components/AlbumList";
 import { fetchAlbum } from "./redux/AlbumActionCreatoe";
 import { useTypeSelector } from "./redux/reducers/albumReducer";
-import "./css/normalize.css"
-import "./css/style.css"
 
 const App: React.FC = () => {
   const state = useTypeSelector((state) => state);
