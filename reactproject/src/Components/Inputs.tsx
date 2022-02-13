@@ -48,7 +48,7 @@ const Inputs: React.FC = () => {
   };
 
   const state = store.getState();
-  let category = state.albums
+  let category = state.data
     .map((x) => x.category)
     .filter(
       (value, index, categoryArray) => categoryArray.indexOf(value) === index
