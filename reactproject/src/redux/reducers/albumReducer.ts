@@ -1,4 +1,4 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { Album } from "../../types/Album";
 import {
   AlbumActionType,
@@ -6,7 +6,7 @@ import {
 } from "../../types/AlbumActionType";
 import { AlbumState, AppinitialState } from "../../types/InitialState";
 
-export const albumReducer = (
+export const AlbumReducer = (
   state = AppinitialState,
   action: AlbumActionType
 ): AlbumState => {
@@ -40,12 +40,12 @@ export const albumReducer = (
         ...state,
         loading: false,
         error: null,
-        albums: action.payload
+        albums: action.payload,
       };
     default:
       return state;
   }
 };
 
-export type Albumreducer = ReturnType<typeof albumReducer>;
+export type Albumreducer = ReturnType<typeof AlbumReducer>;
 export const useTypeSelector: TypedUseSelectorHook<Albumreducer> = useSelector;

@@ -1,32 +1,33 @@
 import { Album } from "./Album";
 
-export enum AlbumActionTypeEnum{
-    fetch = 1,
-    success=2,
-    error=3,
-    filter=4
+export enum AlbumActionTypeEnum {
+  fetch = 1,
+  success = 2,
+  error = 3,
+  filter = 4,
 }
 
-interface FilterAlbumAction{
-    type: AlbumActionTypeEnum.filter
-    payload:Album[]
+interface FilterAlbumAction {
+  type: AlbumActionTypeEnum.filter;
+  payload: Album[];
 }
 
-interface FetchAlbumAction{
-    type:AlbumActionTypeEnum.fetch
+interface FetchAlbumAction {
+  type: AlbumActionTypeEnum.fetch;
 }
 
-interface FetchAlbumSuccessAction{
-    type:AlbumActionTypeEnum.success
-    payload:Album[]
-
+interface FetchAlbumSuccessAction {
+  type: AlbumActionTypeEnum.success;
+  payload: Album[];
 }
 
-interface FetchAlbumErrorAction{
-    type:AlbumActionTypeEnum.error;
-    payload:string
+interface FetchAlbumErrorAction {
+  type: AlbumActionTypeEnum.error;
+  payload: string;
 }
 
-
-export type AlbumActionType = FetchAlbumAction|FetchAlbumSuccessAction|FetchAlbumErrorAction|FilterAlbumAction;
-
+export type AlbumActionType =
+  | FetchAlbumAction
+  | FetchAlbumSuccessAction
+  | FetchAlbumErrorAction
+  | FilterAlbumAction;

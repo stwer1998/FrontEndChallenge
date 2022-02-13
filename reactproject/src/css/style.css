@@ -32,7 +32,7 @@ img {
   font-style: normal;
 }
 
-.content{
+.content {
   margin: 0;
   padding: 0 3%;
   text-align: center;
@@ -40,7 +40,7 @@ img {
   min-height: 100vh;
 }
 
-.title{
+.title {
   color: white;
   margin: 0;
   font-weight: 800;
@@ -48,7 +48,7 @@ img {
   line-height: 85px;
 }
 
-.search-container{
+.search-container {
   padding: 20px 3% 0 3%;
   width: 100%;
   margin: 0;
@@ -57,7 +57,7 @@ img {
   align-items: center;
 }
 
-.category{
+.category {
   margin: 20px 0;
 }
 
@@ -74,11 +74,11 @@ img {
   transition: background-color .3s ease, outline 0.3s ease;
 }
 
-.search::placeholder{
+.search::placeholder {
   color: rgb(206, 206, 206);
 }
 
-.search:hover, .search:focus , .category:hover, .category:focus, .sort:hover, .sort:focus, .back-btn:focus, .back-btn:hover {
+.search:hover, .search:focus, .category:hover, .category:focus, .sort:hover, .sort:focus, .back-btn:focus, .back-btn:hover {
   background-color: rgba(255, 255, 255, 0.09);
   outline: 2px solid #f0bf5f;
   border-radius: 19px;
@@ -117,7 +117,7 @@ img {
   background: rgba(255, 255, 255, 0.09);
 }
 
-.album__container>p{
+.album__container>p {
   cursor: default;
 }
 
@@ -146,11 +146,11 @@ img {
   line-height: 16px;
 }
 
-.album_link{
+.album_link {
   color: #f7ac16;
 }
 
-.albumSrc{
+.albumSrc {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -158,15 +158,15 @@ img {
   color: white;
 }
 
-.albumSrc>div>a{
+.albumSrc>div>a {
   color: #f7ac16;
 }
 
-.albumSrc-right{
+.albumSrc-right {
   width: 70%;
 }
 
-select > option {
+select>option {
   color: black
 }
 
@@ -190,7 +190,7 @@ select > option {
     min-width: 200px;
   }
 
-  .albumSrc{
+  .albumSrc {
     flex-direction: column;
     align-items: center;
     justify-content: center;

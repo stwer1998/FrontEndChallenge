@@ -5,7 +5,7 @@ import {
   filterCategory,
   sortByPrice,
   sortByRealise,
-} from "../redux/AlbumActionCreatoe";
+} from "../redux/AlbumActionCreator";
 import { store } from "../redux/store";
 import { bypriseSort, byRealiseSort } from "../types/InitialState";
 
@@ -80,7 +80,7 @@ const Inputs: React.FC = () => {
   return (
     <div style={styles.searchContainer} aria-label="Search fields">
       <input
-      style={styles.searchItem}
+        style={styles.searchItem}
         onChange={changeHandler}
         value={filterItem}
         className="search"
@@ -89,7 +89,7 @@ const Inputs: React.FC = () => {
         data-bind="value: filter, valueUpdate: 'input'"
       />
       <select
-      style={styles.searchItem}
+        style={styles.searchItem}
         className="category"
         name="category"
         id="category"
@@ -106,7 +106,7 @@ const Inputs: React.FC = () => {
         })}
       </select>
       <select
-      style={styles.searchItem}
+        style={styles.searchItem}
         className="sort"
         name="sort"
         id="sort"

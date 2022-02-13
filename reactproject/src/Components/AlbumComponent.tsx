@@ -52,7 +52,9 @@ function AlbumComponent() {
         <p> Amount of songs: {album.amountSongs}</p>
         <p className="album__price">{album.release.toDateString()}</p>
         <p>{album.rights}</p>
-        <button className="back-btn" onClick={BackHandler}>Go back</button>
+        <button className="back-btn" onClick={BackHandler}>
+          Go back
+        </button>
       </div>
     </div>
   );

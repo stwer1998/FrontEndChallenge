@@ -2,7 +2,6 @@ import { Dispatch } from "react";
 import { Album } from "../types/Album";
 import { AlbumActionType, AlbumActionTypeEnum } from "../types/AlbumActionType";
 import { bypriseSort, byRealiseSort } from "../types/InitialState";
-import { useTypeSelector } from "./reducers/albumReducer";
 import { store } from "./store";
 
 export const fetchAlbum = () => {
@@ -15,7 +14,7 @@ export const fetchAlbum = () => {
         .then((x) => x.json())
         .then((x) => x.feed.entry.map((entry: any) => new Album(entry)));
       dispatch({ type: AlbumActionTypeEnum.success, payload: albums });
-    } catch(e) {      
+    } catch (e) {
       dispatch({ type: AlbumActionTypeEnum.error, payload: "error" });
     }
   };
