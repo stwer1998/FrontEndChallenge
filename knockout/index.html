@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>KnockoutJS</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"></script>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      defer
+      src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"
+    ></script>
     <script defer src="main.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-    <div class="container">
+      <div class="container">
         <div class="loader-container" id="loader" aria-label="Wait for loading">
-            <div class="yellow"></div>
-            <div class="red"></div>
-            <div class="blue"></div>
-            <div class="violet"></div>
+          <div class="yellow"></div>
+          <div class="red"></div>
+          <div class="blue"></div>
+          <div class="violet"></div>
         </div>
-        <div class="error-msg-container" id="errorContainer" aria-label="Please refresh this page there was an error!">
-            <p class="error-msg" id="error-msg"></p>
+        <div
+          class="error-msg-container"
+          id="errorContainer"
+          aria-label="Please refresh this page there was an error!"
+        >
+          <p class="error-msg" id="error-msg"></p>
         </div>
         <div class="content" id="content">
-            <h1 class="title">Top albums</h1>
-            <div class="search-container" aria-label="Search fields">
-                <input class="search" placeholder="Search…" type="text" data-bind="value: filter, valueUpdate: 'input'">
-            </div>
-            <ul class="albums list-reset" data-bind="foreach: { data: albums, as: 'album'}"
-                aria-label="List of top albums">
-                <li class="albums__album">
-                    <a href="" class="album__link" data-bind="attr: {href: album.link}">
-                        <div class="album__container">
-                            <img data-bind="attr: {src: album.images}">
-                            <p class="album__title" data-bind="text: album.title"></p>
-                            <p class="album__category" data-bind="text: album.category"></p>
-                            <p class="album__price" data-bind="text: album.price"></p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+          <h1 class="title">Top albums</h1>
+          <div class="search-container" aria-label="Search fields">
+            <input
+              class="search"
+              placeholder="Search…"
+              type="text"
+              data-bind="value: filter, valueUpdate: 'input'"
+            />
+          </div>
+          <ul
+            class="albums list-reset"
+            data-bind="foreach: { data: albums, as: 'album'}"
+            aria-label="List of top albums"
+          >
+            <li class="albums__album">
+              <a
+                href=""
+                class="album__link"
+                data-bind="attr: {href: album.link}"
+              >
+                <div class="album__container">
+                  <img data-bind="attr: {src: album.images, alt: album.title}" />
+                  <p class="album__title" data-bind="text: album.title"></p>
+                  <p
+                    class="album__category"
+                    data-bind="text: album.category"
+                  ></p>
+                  <p class="album__price" data-bind="text: album.price"></p>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
-    </div>
-</main>
-</body>
+      </div>
+    </main>
+  </body>
 </html>
