@@ -42,6 +42,13 @@ describe("knockout e2e test", () => {
         .should("have.length", albums.length)
     })
 
+    it("check content (title)", ()=>{
+        cy.get(".album__title")
+        .each((item)=>{
+            return albums.filter(x=>x.filter(item.text()))
+        })
+    })
+
     it("check search", ()=>{
         cy.get(".search").type("pop");
         cy.wait(1000);
