@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AlbumComponent from "./Components/AlbumComponent";
 import AlbumList from "./Components/AlbumList";
 import { fetchAlbum } from "./redux/AlbumActionCreator";
-import { useTypeSelector } from "./redux/reducers/AlbumReducer";
+import { useTypeSelector } from "./redux/AlbumReducer";
 
 const App: React.FC = () => {
   const state = useTypeSelector((state) => state);

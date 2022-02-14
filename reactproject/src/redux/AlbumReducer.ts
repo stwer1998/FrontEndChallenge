@@ -1,10 +1,10 @@
 import { TypedUseSelectorHook, useSelector } from "react-redux";
-import { Album } from "../../types/Album";
+import { Album } from "../types/Album";
 import {
   AlbumActionType,
   AlbumActionTypeEnum,
-} from "../../types/AlbumActionType";
-import { AlbumState, AppinitialState } from "../../types/InitialState";
+} from "../types/AlbumActionType";
+import { AlbumState, AppinitialState } from "../types/InitialState";
 
 export const AlbumReducer = (
   state = AppinitialState,
