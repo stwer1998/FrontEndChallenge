@@ -27,7 +27,7 @@ async function Init(){
     albums = await getAlbums();
 }
 
-const fetchWaitTime = 5000;
+const fetchWaitTime = 5000;//waiting time for a response from the Api
 
 
 describe("knockout e2e test", () => {

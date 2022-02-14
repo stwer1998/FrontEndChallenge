@@ -1,7 +1,8 @@
 {
   "name": "knockout",
   "scripts": {
-    "test": "jest"
+    "testjest": "jest",
+    "teste2e": "npx cypress open"
   },
   "devDependencies": {
     "@babel/core": "^7.17.2",

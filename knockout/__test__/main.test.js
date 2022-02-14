@@ -1,3 +1,5 @@
+//Jest does not always work well when there is a link to the dom tree in the file, 
+//so I moved the class here to test the functionality
 class Album {
     constructor(album) {
         this.images = album['im:image'][2].label,
@@ -15,6 +17,7 @@ class Album {
     }
 }
 
+//test data
 const responce = {
     "feed": {
         "author": { "name": { "label": "iTunes Store" }, "uri": { "label": "http://www.apple.com/itunes/" } }, "entry": [

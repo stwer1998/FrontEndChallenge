@@ -35,7 +35,7 @@ class Albums {
             return ko.utils.arrayFilter(albums, function (album) {
                 return filter ? album.filter(filter) : true;
             });
-        }, self).extend({ throttle: 800 });
+        }, self).extend({ throttle: 800 });//wait type
     }
 }
 
