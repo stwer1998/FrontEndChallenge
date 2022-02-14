@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   filterTitle,
@@ -11,16 +11,17 @@ import { bypriseSort, byRealiseSort } from "../types/InitialState";
 
 const Inputs: React.FC = () => {
   const [filterItem, setFilterItem] = useState<string>("");
-  let delaySearch: ReturnType<typeof setTimeout>;
   const dispatch = useDispatch();
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilterItem(event.target.value);
-    clearTimeout(delaySearch);
-    delaySearch = setTimeout(
-      () => dispatch(filterTitle(event.target.value)),
-      800
-    );
   };
+
+  useEffect(()=>{
+    const timeoutId = setTimeout(() => {
+      dispatch(filterTitle(filterItem))
+    }, 500);
+    return ()=>clearTimeout(timeoutId)
+  })
 
   const categoryChangeHandler = (
     event: React.ChangeEvent<HTMLSelectElement>
