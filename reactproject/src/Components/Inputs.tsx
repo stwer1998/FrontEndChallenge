@@ -12,6 +12,7 @@ import { bypriseSort, byRealiseSort } from "../types/InitialState";
 const Inputs: React.FC = () => {
   const [filterItem, setFilterItem] = useState<string>("");
   const dispatch = useDispatch();
+
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilterItem(event.target.value);
   };
@@ -55,33 +56,9 @@ const Inputs: React.FC = () => {
       (value, index, categoryArray) => categoryArray.indexOf(value) === index
     );
 
-  const styles = {
-    searchContainer: {
-      padding: "20px 3% 0 3%",
-      width: "100%",
-      margin: "0",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    searchItem: {
-      padding: "4px 24px 0 24px",
-      backgroundColor: "rgba(255, 255, 255, 0.19)",
-      maxWidth: "570px",
-      minWidth: "275px",
-      width: "50%",
-      border: "none",
-      height: "60px",
-      borderRadius: "19px",
-      color: "white",
-      transition: "background-color .3s ease, outline 0.3s ease",
-    },
-  } as const;
-
   return (
-    <div style={styles.searchContainer} aria-label="Search fields">
+    <div className="search-container" aria-label="Search fields">
       <input
-        style={styles.searchItem}
         onChange={changeHandler}
         value={filterItem}
         className="search"
@@ -90,7 +67,6 @@ const Inputs: React.FC = () => {
         data-bind="value: filter, valueUpdate: 'input'"
       />
       <select
-        style={styles.searchItem}
         className="category"
         name="category"
         id="category"
@@ -107,7 +83,6 @@ const Inputs: React.FC = () => {
         })}
       </select>
       <select
-        style={styles.searchItem}
         className="sort"
         name="sort"
         id="sort"
