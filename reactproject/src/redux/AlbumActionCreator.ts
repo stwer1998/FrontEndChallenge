@@ -45,6 +45,7 @@ const filterAlbum = (dispatch: Dispatch<AlbumActionType>) => {
       );
     }
   }
+  //In order not to lose the sorting we do a re-sorting because the array has changed 
   dispatch({ type: AlbumActionTypeEnum.filter, payload: Sorter(filtered) });
 
 };
@@ -68,10 +69,11 @@ const sortAlbum = (dispatch: Dispatch<AlbumActionType>) => {
   return dispatch({ type: AlbumActionTypeEnum.filter, payload: Sorter(state.albums) });
 };
 
-function Sorter(filtered: Album[]):Album[]{
+function Sorter(albums: Album[]):Album[]{
+  let filtered = albums.slice();
   const state = store.getState();
   if (state.sorts.byPrice) {
-    filtered = filtered.sort((n1, n2) => n1.price - n2.price);
+    filtered = filtered.sort((n1, n2) => (n1.price - n2.price));
     if (state.sorts.byPrice === bypriseSort.price_desc) {
       filtered = filtered.reverse();
     }
