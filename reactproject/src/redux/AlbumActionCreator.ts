@@ -45,7 +45,8 @@ const filterAlbum = (dispatch: Dispatch<AlbumActionType>) => {
       );
     }
   }
-  return dispatch({ type: AlbumActionTypeEnum.filter, payload: filtered });
+  dispatch({ type: AlbumActionTypeEnum.filter, payload: Sorter(filtered) });
+
 };
 
 export const sortByPrice = (sort: bypriseSort | null) => {
@@ -64,7 +65,11 @@ export const sortByRealise = (sort: byRealiseSort | null) => {
 
 const sortAlbum = (dispatch: Dispatch<AlbumActionType>) => {
   const state = store.getState();
-  let filtered = state.albums;
+  return dispatch({ type: AlbumActionTypeEnum.filter, payload: Sorter(state.albums) });
+};
+
+function Sorter(filtered: Album[]):Album[]{
+  const state = store.getState();
   if (state.sorts.byPrice) {
     filtered = filtered.sort((n1, n2) => n1.price - n2.price);
     if (state.sorts.byPrice === bypriseSort.price_desc) {
@@ -79,5 +84,5 @@ const sortAlbum = (dispatch: Dispatch<AlbumActionType>) => {
       filtered = filtered.reverse();
     }
   }
-  return dispatch({ type: AlbumActionTypeEnum.filter, payload: filtered });
-};
+  return filtered
+}
